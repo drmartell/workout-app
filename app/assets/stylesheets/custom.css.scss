@@ -22,3 +22,12 @@ body {
 #error_explanation hs {
   font-size: 150%
 }
+
+.signed-in-user {
+  padding-top: 10px;
+  padding-right: 20px;
+}
+
+.signed-in-user .navbar-text {
+  color: #ffffff;
+}
