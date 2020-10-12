@@ -5,15 +5,16 @@ RSpec.feature "Users signin" do
     @email = "john@example.com"
     @password = "password"
     @john = User.create!(email: @email, password: @password)
+    visit '/'
+    click_link "Sign in"
+    fill_in "Email", with: @john.email
+    fill_in "Password",  with: @john.password
+    click_button "Log in"
   end
 
   scenario "with valid credentials" do
     visit "/"
-    click_link "Sign in"
-    fill_in "Email", with: @email
-    fill_in "Password", with: @password
-    click_button "Log in"
-    expect(page).to have_content("Signed in successfully")
-    expect(page).to have_content("Signed in as #{@email}")
+    click_link "Sign out"
+    expect(page).to have_content("Signed out successfully")
   end
 end
